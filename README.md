@@ -1,4 +1,4 @@
-# Note Taker App
+# Employee Tracker App
 Live Github Link: [Live link]()
 
 ## Description
