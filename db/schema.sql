@@ -25,10 +25,6 @@ last_name VARCHAR(30) NOT NULL,
 role_id INT NOT NULL,
 manager_id INT NOT NULL
 FOREIGN KEY (role_id)
-REFERENCES roles(department_id)
+REFERENCES roles(id)
 ON DELETE SET NULL
 );
-
---QUESTION: is the category that links multiple tables the primary key? or is ID always the primary key?
---QUESTION: when do you decide is something is NOT NULL or NULL?
---Question: when do you determine when something should auto incriment or not?
