@@ -21,9 +21,9 @@ const db = mysql.createConnection(
 
 //GET for DEPARTMENTS
 app.get('/api/departments', (req,res) => {
-    console.log(`${req.method} was received`);
+    console.log(`${req.method} was received for/departmments`);
 
-    db.query('SELECT id, name AS department FROM departments', (err, rows) => {
+    db.query('SELECT name FROM departments', (err, rows) => {
         if(err){
             res.status(500).json({error: err.message});
             return;
@@ -37,9 +37,9 @@ app.get('/api/departments', (req,res) => {
 
 //POST departments
 app.post('/api/departments', (req,res) => {
-    console.log(`${req.method} was received`);
+    console.log(`${req.method} was received for /departments`);
 
-    db.query('SELECT id, name AS department FROM departments', (err, rows) => {
+    db.query('INSERT INTO department FROM departments', (err, rows) => {
         if(err){
             res.status(500).json({error: err.message});
             return;
@@ -53,22 +53,49 @@ app.post('/api/departments', (req,res) => {
 
 //GET employee
 app.get('api/employee', (req,res) => {
-    db.query();
+    console.log(`${req.method} was received for /employee`);
+    db.query('SELECT first_name, last_name FROM employee', (err, rows) => {
+        if(err){
+            res.status(500).json({error: err.message});
+            return;
+        }
+        res,json(
+            {
+                message: 'success',
+                data: rows
+            }
+        )
+    });
 });
 
 
 //POST employee
 app.post('api/employee', (req,res) => {
-    db.query();
+    console.log(`${req.method} was received for /employee`);
+    db.query('INSERT INTO employee(first_name, last_name, role_id)', (err, rows) => {
+        console.log(rows);
+        if(err){
+            res.status(500).json({error: err.message});
+            return;
+        }
+        res,json(
+            {
+                message: 'success',
+                data: rows
+            }
+        )
+    });
 });
 
 //GET roles
 app.get('api/roles', (req,res) => {
+    console.log(`${req.method} was received for /roles`);
     db.query();
 });
 
 //POST roles
 app.post('api/roles', (req,res) => {
+    console.log(`${req.method} was received for /roles`);
     db.query();
 });
 
